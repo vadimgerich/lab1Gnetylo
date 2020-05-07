@@ -13,16 +13,16 @@ const tournirControler = {
     
     },
     
-    async getByCount(req,res){
+    async getByReq(req,res){
         function makeQueryObject(query){
             let result = {};        
             if (query.data){
-                result.data = {"$gte":(query.count)};
+                result.data = {"$gte":(query.age),"$eq":(query.pol)};
             }   
             return result; 
         }
         try {
-            const list = await Neww.findByData.findByData(makeQueryObject(req.params.count));
+            const list = await Tournir.findByData.(makeQueryObject(req.params.count));
             response.send(list);
         }
             catch(error){
